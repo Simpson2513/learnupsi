@@ -1,8 +1,8 @@
 class Main {
     public static void main(String[] args) {
-        boolean isGreenLight = false;
-        int speedOfPlayer1 = 5;
-        int speedOfPlayer2 = 0;
+        boolean isGreenLight = false; //all lose
+        int speedOfPlayer1 = 7;
+        int speedOfPlayer2 = 5;
         int speedOfPlayer3 = 2;
         int count = 0;
 
