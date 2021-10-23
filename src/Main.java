@@ -1,6 +1,6 @@
 class Main {
     public static void main(String[] args) {
-        boolean isGreenLight = false;
+        boolean isGreenLight = false; //все проходят
         int speedOfPlayer1 = 0;
         int speedOfPlayer2 = 0;
         int speedOfPlayer3 = 0;
