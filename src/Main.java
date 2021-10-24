@@ -1,19 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        boolean isGreenLight = false;
-        int speedOfPlayer1 = 5;
-        int speedOfPlayer2 = 0;
-        int speedOfPlayer3 = 2;
-        int count = 0;
-
-        if (!isGreenLight) {
-            if (speedOfPlayer1 != 0)
-                count++;
-            if (speedOfPlayer2 != 0)
-                count++;
-            if (speedOfPlayer3 != 0)
-                count++;
-        }
-        System.out.println(count + " выбывают");
+        double speedPlayer1 = 4;
+        System.out.println(GameC.GameWithNegativeCheck(speedPlayer1));
+        /*String s;
+        if (!GameC.isNegativeSpeed(speedPlayer1)){
+            s = "is victory " + GameC.isWinCalamary(speedPlayer1);
+        } else {
+            s = "speed is negative";
+        }*/
     }
 }
