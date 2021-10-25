@@ -1,22 +1,61 @@
 public class GameC {
     public static boolean isGreenLight = false;
 
-    public static boolean isWinCalamary(double speedPlayer) {
-        return (!isGreenLight && speedPlayer == 0) || (isGreenLight && speedPlayer >= 0);
-    }
-
-    public static boolean isNegativeSpeed(double speedPlayer) {
-        return speedPlayer < 0;
-    }
-
-    public static String GameWithNegativeCheck(double speedPlayer) {
-        String s;
-        if (!GameC.isNegativeSpeed(speedPlayer)){
-            s = "is victory " + GameC.isWinCalamary(speedPlayer);
-        } else {
-            s = "speed is negative";
+    public static int countLoses(double[] speedPlayers) {
+        int count = 0;
+        for (int i = 0; i < speedPlayers.length; i++) {
+            if (isLouseCalamary(speedPlayers[i])) {
+                count++;
+            }
         }
-        return s;
+        return count;
+    }
+
+    public static int countWins(double[] speedPlayers) {
+        int countValid = countValid(speedPlayers);
+        int countLoses = countLoses(speedPlayers);
+        return countValid - countLoses;
+    }
+
+    public static double[] LoseArray(double[] speedPlayers) {
+        double ArrayLose[] = new double[countLoses(speedPlayers)];
+        int j = 0;
+        for (int i = 0; i < speedPlayers.length; i++) {
+            if ((isValid(speedPlayers[i])) && (isLouseCalamary(speedPlayers[i]))) {
+                ArrayLose[j] = speedPlayers[i];
+                j++;
+            }
+        }
+        return ArrayLose;
+    }
+
+    public static double[] WinArray(double[] speedPlayers) {
+        double ArrayWin[] = new double[countWins(speedPlayers)];
+        int j = 0;
+        for (int i = 0; i < speedPlayers.length; i++) {
+            if ((isValid(speedPlayers[i])) && (!isLouseCalamary(speedPlayers[i]))) {
+                ArrayWin[j] = speedPlayers[i];
+                j++;
+            }
+        }
+        return ArrayWin;
+    }
+
+    public static int countValid(double[] speedPlayers) {
+        int validCount = 0;
+        for (int i = 0; i < speedPlayers.length; i++) {
+            if (speedPlayers[i] >= 0)
+                validCount++;
+        }
+        return validCount;
+    }
+
+    public static boolean isValid(double speedPlayers) {
+        return speedPlayers >= 0;
+    }
+
+    public static boolean isLouseCalamary(double speedPlayer) {
+        return (!isGreenLight && speedPlayer > 0);
     }
 }
 
