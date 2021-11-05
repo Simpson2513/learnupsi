@@ -9,6 +9,7 @@ public class GameCTest {
     public void countLouseWithRed() {
         double[] speedPlayers = {3, 3, 5, 8, 10, 0, 23, 8, 0, 9, 2};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 9;
@@ -20,6 +21,7 @@ public class GameCTest {
     public void countLouseWithNegativeAndRed() {
         double[] speedPlayers = {-3, 3, 5, 8, 10, 0, -23, 8, 0, -9, 2};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 6;
@@ -31,6 +33,7 @@ public class GameCTest {
     public void countLouseWithOneNegativeAndRed() {
         double[] speedPlayers = {-3, 3, 5, 8, 10, 0, 23, 8, 0, 9, 2};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 8;
@@ -42,6 +45,7 @@ public class GameCTest {
     public void countLouseWithAllNegativeAndRed() {
         double[] speedPlayers = {-3, -3, -5, -8, -10, 0, -23, -8, -9, -2};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 0;
@@ -53,6 +57,7 @@ public class GameCTest {
     public void countLouseWithAllZeroAndRed() {
         double[] speedPlayers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 0;
@@ -64,6 +69,7 @@ public class GameCTest {
     public void countLouseWithGreen() {
         double[] speedPlayers = {3, 3, 5, 8, 10, 0, 23, 8, 0, 9, 2};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 0;
@@ -75,9 +81,11 @@ public class GameCTest {
     public void countLouseWithNegativeAndGreen() {
         double[] speedPlayers = {-3, 3, 5, 8, 10, 0, -23, 8, 0, -9, 2};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 0;
+        GameC.MAX_SPEED = 0;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -86,6 +94,7 @@ public class GameCTest {
     public void countLouseWithAllNegativeAndGreen() {
         double[] speedPlayers = {-3, -3, -5, -8, -10, 0, -23, -8, -9, -2};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 0;
@@ -97,6 +106,7 @@ public class GameCTest {
     public void countLouseWithAllZeroAndGreen() {
         double[] speedPlayers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
         int actual = GameC.countLoses(speedPlayers);
         int expected = 0;
@@ -105,223 +115,304 @@ public class GameCTest {
     }
 
     @Test
-    public void ArrayLouseWithAllZeroAndRed() {
+    public void arrayLouseWithAllZeroAndRed() {
         double[] speedPlayers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithOneZeroAndOneNegativeAndRed() {
+    public void arrayLouseWithOneZeroAndOneNegativeAndRed() {
         double[] speedPlayers = {9, 0.1, 6, 0, 1, 3, -5, 8, 90, 0.8};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {9, 0.1, 6, 1, 3, 8, 90, 0.8};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithOneNegativeAndOnePositiveAndRed() {
+    public void arrayLouseWithOneNegativeAndOnePositiveAndRed() {
         double[] speedPlayers = {0, 0.1, -6, 0, 0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {0.1};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithAllNegativeAndRed() {
+    public void arrayLouseWithAllNegativeAndRed() {
         double[] speedPlayers = {-9, -0.1, -6, -1, -10, -50};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithAllPositiveAndRed() {
+    public void arrayLouseWithAllPositiveAndRed() {
         double[] speedPlayers = {9, 0.1, 6, 1, 10, 50};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {9, 0.1, 6, 1, 10, 50};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithOnePositiveAndRed() {
+    public void arrayLouseWithOnePositiveAndRed() {
         double[] speedPlayers = {9};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {9};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithOutAndRed() {
+    public void arrayLouseWithOutAndRed() {
         double[] speedPlayers = {};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithAllPositiveAndGreen() {
+    public void arrayLouseWithAllPositiveAndGreen() {
         double[] speedPlayers = {9, 0.1, 6, 1, 10, 50};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithAllNegativeAndGreen() {
+    public void arrayLouseWithAllNegativeAndGreen() {
         double[] speedPlayers = {-9, -0.1, -6, -1, -10, -50};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayLouseWithAllZeroAndGreen() {
+    public void arrayLouseWithAllZeroAndGreen() {
         double[] speedPlayers = {0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.LoseArray(speedPlayers);
+        double[] actual = GameC.loseArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithAllZeroAndRed() {
+    public void arrayWinWithAllZeroAndRed() {
         double[] speedPlayers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithOneZeroAndOneNegativeAndRed() {
+    public void arrayWinWithOneZeroAndOneNegativeAndRed() {
         double[] speedPlayers = {9, 0.1, 6, 0, 1, 3, -5, 8, 90, 0.8};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {0};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithOneNegativeAndOnePositiveAndRed() {
+    public void arrayWinWithOneNegativeAndOnePositiveAndRed() {
         double[] speedPlayers = {0, 0.1, -6, 0, 0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {0, 0, 0, 0, 0, 0, 0, 0};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithAllNegativeAndRed() {
+    public void arrayWinWithAllNegativeAndRed() {
         double[] speedPlayers = {-9, -0.1, -6, -1, -10, -50};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithAllPositiveAndRed() {
+    public void arrayWinWithAllPositiveAndRed() {
         double[] speedPlayers = {9, 0.1, 6, 1, 10, 50};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithOnePositiveAndRed() {
+    public void arrayWinWithOnePositiveAndRed() {
         double[] speedPlayers = {9};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithOutAndRed() {
+    public void arrayWinWithOutAndRed() {
         double[] speedPlayers = {};
         GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithAllPositiveAndGreen() {
+    public void arrayWinWithAllPositiveAndGreen() {
         double[] speedPlayers = {9, 0.1, 6, 1, 10, 50};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {9, 0.1, 6, 1, 10, 50};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithAllNegativeAndGreen() {
+    public void arrayWinWithAllNegativeAndGreen() {
         double[] speedPlayers = {-9, -0.1, -6, -1, -10, -50};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
 
     @Test
-    public void ArrayWinWithAllZeroAndGreen() {
+    public void arrayWinWithAllZeroAndGreen() {
         double[] speedPlayers = {0, 0, 0, 0, 0, 0};
         GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
 
-        double[] actual = GameC.WinArray(speedPlayers);
+        double[] actual = GameC.winArray(speedPlayers);
         double[] expected = {0, 0, 0, 0, 0, 0};
 
         Assertions.assertTrue(Arrays.equals(expected, actual));
     }
+
+    @Test
+    public void arrayWinWithAllPositiveAndRedAndMAX_SPEED10() {
+        double[] speedPlayers = {9, 0.1, 6, 1, 11, 10};
+        GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 10;
+
+        double[] actual = GameC.winArray(speedPlayers);
+        double[] expected = {9, 0.1, 6, 1, 10};
+
+        Assertions.assertTrue(Arrays.equals(expected, actual));
+    }
+
+    @Test
+    public void arrayWinRed() {
+        String[] speedStringPlayers = {"Jo 2", "Mo 1", "Po 0", "No 5", "Vo 0"};
+        GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
+
+        String[] actual = GameC.winStringArray(speedStringPlayers);
+        String[] expected = {"Po", "Vo"};
+
+        Assertions.assertTrue(Arrays.equals(expected, actual));
+    }
+
+    @Test
+    public void arrayWinGreen() {
+        String[] speedStringPlayers = {"Jo 2", "Mo 1", "Po 0", "No 5", "Vo 0"};
+        GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
+
+        String[] actual = GameC.winStringArray(speedStringPlayers);
+        String[] expected = {"Jo", "Mo", "Po", "No", "Vo"};
+
+        Assertions.assertTrue(Arrays.equals(expected, actual));
+    }
+
+    @Test
+    public void arrayWinRedWithNegative() {
+        String[] speedStringPlayers = {"Jo 2", "Mo -1", "Po 0", "No 5", "Vo 0"};
+        GameC.isGreenLight = false;
+        GameC.MAX_SPEED = 0;
+
+        String[] actual = GameC.winStringArray(speedStringPlayers);
+        String[] expected = {"Po", "Vo"};;
+
+        Assertions.assertTrue(Arrays.equals(expected, actual));
+    }
+
+    @Test
+    public void arrayWinGreenWithNegative() {
+        String[] speedStringPlayers = {"Jo 2", "Mo -1", "Po 0", "No 5", "Vo 0"};
+        GameC.isGreenLight = true;
+        GameC.MAX_SPEED = 0;
+
+        String[] actual = GameC.winStringArray(speedStringPlayers);
+        String[] expected = {"Jo", "Po", "No", "Vo"};;
+
+        Assertions.assertTrue(Arrays.equals(expected, actual));
+    }
+
 }
 
